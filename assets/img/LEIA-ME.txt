@@ -1,0 +1,7 @@
+Coloque aqui as fotos reais, com estes nomes:
+
+- foto-hero.jpg   (foto usada na seção inicial)
+- foto-sobre.jpg  (foto usada na seção "Sobre mim")
+
+Dica: fotos verticais (retrato) ficam melhores, pois os quadros são arredondados
+no formato 4:5.
