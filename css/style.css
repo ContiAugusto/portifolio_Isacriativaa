@@ -7,9 +7,11 @@
 
 /* -------------------------------------------------------------------------
    1. ABSTRACTS — variáveis
-   Paleta "caixinha de giz de cera": papel creme + tinta carvão + 5 cores
-   de giz, cada uma com um trabalho fixo (verde = natureza, amarelo = alegria,
-   rosa = afeto, azul = calma, roxo = imaginação).
+   Paleta "mundo da Isa Criativa": fundo verde clarinho + tinta carvão + 6
+   cores vivas dos personagens, cada uma com um trabalho fixo (verde =
+   natureza, amarelo = alegria, rosa = afeto, azul = calma, roxo =
+   imaginação, vermelho = energia). Para trocar QUALQUER cor do site,
+   mude só os valores aqui dentro — o resto do arquivo usa só var(--nome).
    ------------------------------------------------------------------------- */
 :root {
   /* Cores base */
@@ -18,11 +20,11 @@
   --color-text-light: #6f6559;
   --color-white: #ffffff;
   --color-white-rgb: 255, 255, 255;
-  --color-background: #fbf7ee;
-  --color-background-soft: #f4efe0;
-  --color-border: #e8dfcb;
+  --color-background: #eef6ec;
+  --color-background-soft: #e1efdd;
+  --color-border: #d9e8d4;
 
-  /* Cores de destaque */
+  /* Cores de destaque — as cores "vivas" dos personagens */
   --color-green: #4c9b6e;
   --color-green-rgb: 76, 155, 110;
   --color-yellow: #f2b33d;
@@ -33,6 +35,8 @@
   --color-blue-rgb: 70, 149, 214;
   --color-purple: #9a7fcb;
   --color-purple-rgb: 154, 127, 203;
+  --color-red: #e4573f;
+  --color-red-rgb: 228, 87, 63;
 
   /* Tipografia */
   --font-display: "Fredoka", ui-rounded, "Segoe UI", sans-serif;
@@ -425,11 +429,19 @@ strong {
 }
 
 /* -------------------------------------------------------------------------
-   7. COMPONENTS — livro (ilustração css)
+   7. COMPONENTS — livro
+   .book-card normal: capa (foto real, com ícone de fallback caso a imagem
+   ainda não exista) + título + autora + sinopse + botão "Comprar" grudado
+   embaixo (margin-top: auto empurra o botão para o rodapé do card).
+   .book-card--soon: terceiro card, sem capa/botão, estilo apagado com
+   selo "Em breve". Para trocar texto/link, edite o HTML de cada <article>
+   — este bloco de CSS serve para os três cards.
    ------------------------------------------------------------------------- */
 .book-card {
   position: relative;
   z-index: var(--z-content);
+  display: flex;
+  flex-direction: column;
   height: 100%;
   padding: var(--space-6) var(--space-5) var(--space-5);
   background-color: var(--color-white);
@@ -445,14 +457,22 @@ strong {
 
 .book-card__cover {
   position: relative;
-  width: 88px;
-  height: 118px;
+  width: 100%;
+  max-width: 150px;
+  aspect-ratio: 3 / 4;
   margin-bottom: var(--space-5);
-  border-radius: 4px 10px 10px 4px;
+  overflow: hidden;
+  border-radius: 6px 12px 12px 6px;
   box-shadow: -6px 0 0 -1px rgba(var(--color-text-rgb), 0.06), var(--shadow-sm);
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.book-card__cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .book-card__cover::before {
@@ -461,6 +481,7 @@ strong {
   inset: 6px 8px 6px 14px;
   border: 1.5px dashed rgba(255, 255, 255, 0.55);
   border-radius: 2px;
+  pointer-events: none;
 }
 
 .book-card__cover svg {
@@ -479,6 +500,14 @@ strong {
 
 .book-card__cover--blue {
   background-color: var(--color-blue);
+}
+
+.book-card__cover--yellow {
+  background-color: var(--color-yellow);
+}
+
+.book-card__cover--red {
+  background-color: var(--color-red);
 }
 
 .book-card__title {
@@ -500,8 +529,70 @@ strong {
   line-height: 1.7;
 }
 
+.book-card__buy {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-5);
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--color-border);
+  font-family: var(--font-display);
+  font-size: var(--font-sm);
+  font-weight: var(--fw-semibold);
+  color: var(--color-green);
+  transition: gap var(--transition-fast);
+}
+
+.book-card__buy svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.book-card__buy:hover {
+  gap: var(--space-3);
+}
+
+.book-card--soon {
+  justify-content: center;
+  align-items: flex-start;
+  background-color: transparent;
+  border: 1.5px dashed var(--color-border);
+  box-shadow: none;
+}
+
+.book-card--soon:hover {
+  transform: none;
+  box-shadow: none;
+}
+
+.book-card__soon-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-4);
+  padding: var(--space-1) var(--space-3);
+  border-radius: var(--radius-pill);
+  background-color: rgba(var(--color-purple-rgb), 0.14);
+  color: var(--color-purple);
+  font-family: var(--font-display);
+  font-size: var(--font-xs);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.book-card--soon .book-card__title {
+  color: var(--color-text-light);
+}
+
 /* -------------------------------------------------------------------------
-   8. COMPONENTS — player de música (decorativo)
+   8. COMPONENTS — player de música (funcional)
+   Cada .player__track é um <button> real. js/musica-player.js alterna a
+   classe .is-active e troca o ícone play/pause; a cor de cada faixa vem
+   de data-color (green | yellow | pink | blue | purple | red), lido via
+   --track-accent / --track-accent-rgb. Para trocar as músicas, edite
+   SÓ o arquivo js/data-musica.js — este bloco de CSS não precisa mudar.
    ------------------------------------------------------------------------- */
 .player {
   position: relative;
@@ -527,11 +618,30 @@ strong {
   display: flex;
   align-items: center;
   gap: var(--space-3);
-  padding: var(--space-3) 0;
+  width: 100%;
+  padding: var(--space-3) var(--space-2);
+  border-radius: var(--radius-md);
+  text-align: left;
+  font-family: inherit;
+  color: inherit;
+  transition: background-color var(--transition-fast), transform var(--transition-fast);
 }
 
 .player__track + .player__track {
   border-top: 1px dashed var(--color-border);
+}
+
+.player__track:hover {
+  background-color: rgba(var(--color-text-rgb), 0.035);
+}
+
+.player__track.is-active {
+  background-color: rgba(var(--track-accent-rgb, var(--color-green-rgb)), 0.1);
+}
+
+.player__track:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
 }
 
 .player__icon {
@@ -542,13 +652,26 @@ strong {
   height: 34px;
   flex-shrink: 0;
   border-radius: 50%;
-  background-color: rgba(var(--color-green-rgb), 0.12);
-  color: var(--color-green);
+  background-color: rgba(var(--track-accent-rgb, var(--color-green-rgb)), 0.14);
+  color: var(--track-accent, var(--color-green));
+  transition: background-color var(--transition-fast);
 }
 
 .player__icon svg {
   width: 14px;
   height: 14px;
+}
+
+.player__icon .icon-pause {
+  display: none;
+}
+
+.player__track.is-active .icon-play {
+  display: none;
+}
+
+.player__track.is-active .icon-pause {
+  display: block;
 }
 
 .player__name {
@@ -560,6 +683,15 @@ strong {
 .player__meta {
   font-size: var(--font-xs);
   color: var(--color-text-light);
+}
+
+.player__progress {
+  margin-top: var(--space-4);
+  padding-top: var(--space-4);
+  border-top: 1px dashed var(--color-border);
+  font-size: var(--font-xs);
+  color: var(--color-text-light);
+  text-align: center;
 }
 
 /* -------------------------------------------------------------------------
@@ -593,10 +725,19 @@ strong {
   position: sticky;
   top: 0;
   z-index: var(--z-header);
-  background-color: rgba(var(--color-white-rgb), 0.85);
-  backdrop-filter: blur(10px);
   border-bottom: 1px solid transparent;
   transition: border-color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+/* O fundo desfocado fica num pseudo-elemento: backdrop-filter direto no
+   .header faria o menu mobile (position: fixed) ficar preso dentro dele. */
+.header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: rgba(var(--color-white-rgb), 0.85);
+  backdrop-filter: blur(10px);
 }
 
 .header.is-scrolled {
@@ -681,6 +822,73 @@ strong {
 
 .header__cta {
   flex-shrink: 0;
+}
+
+/* submenu "Personagens" (Alule / Aluleu) — dropdown no desktop,
+   lista sempre aberta e recuada dentro do menu cheio do celular */
+.nav__item--has-children {
+  position: relative;
+}
+
+.nav__submenu {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width: 901px) {
+  .nav__list {
+    gap: var(--space-5);
+  }
+
+  .nav__submenu {
+    position: absolute;
+    top: calc(100% + var(--space-3));
+    left: 50%;
+    transform: translate(-50%, 8px);
+    min-width: 160px;
+    padding: var(--space-2);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: opacity var(--transition-fast), transform var(--transition-fast), visibility var(--transition-fast);
+    z-index: var(--z-overlay);
+  }
+
+  .nav__item--has-children:hover .nav__submenu,
+  .nav__item--has-children:focus-within .nav__submenu {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translate(-50%, 0);
+  }
+
+  .nav__submenu .nav__link {
+    padding: var(--space-3) var(--space-4);
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+  }
+
+  .nav__submenu .nav__link::after {
+    display: none;
+  }
+
+  .nav__submenu .nav__link:hover {
+    background-color: var(--color-background);
+  }
+}
+
+@media (min-width: 901px) and (max-width: 1100px) {
+  .nav__list {
+    gap: var(--space-4);
+  }
+
+  .nav__link {
+    font-size: var(--font-xs);
+  }
 }
 
 .nav-toggle {
@@ -772,6 +980,16 @@ strong {
   .nav__cta-mobile {
     display: inline-flex;
     margin: var(--space-3) var(--space-5) 0;
+  }
+
+  .nav__submenu {
+    width: 100%;
+    padding-left: var(--space-4);
+  }
+
+  .nav__submenu .nav__link {
+    font-size: var(--font-md);
+    color: var(--color-text-light);
   }
 }
 
@@ -1250,7 +1468,15 @@ strong {
   border-radius: 50%;
   background: repeating-radial-gradient(circle, #30333a 0, #30333a 2px, #25272c 3px, #25272c 5px);
   box-shadow: 0 25px 50px rgba(var(--color-text-rgb), 0.2);
-  animation: rotate-slow 20s linear infinite;
+  animation: rotate-slow 5.5s linear infinite;
+  /* parado por padrão — só gira enquanto uma faixa toca (js/musica-player.js) */
+  animation-play-state: paused;
+  transition: box-shadow var(--transition-normal);
+}
+
+.music-section__disc.is-playing {
+  animation-play-state: running;
+  box-shadow: 0 30px 60px rgba(var(--color-text-rgb), 0.3);
 }
 
 .music-section__disc::before {
@@ -1261,8 +1487,9 @@ strong {
   width: 105px;
   height: 105px;
   border-radius: 50%;
-  background-color: var(--color-pink);
+  background-color: var(--track-accent, var(--color-pink));
   transform: translate(-50%, -50%);
+  transition: background-color var(--transition-normal);
 }
 
 .music-section__disc::after {
@@ -1849,7 +2076,164 @@ strong {
 }
 
 /* -------------------------------------------------------------------------
-   15. ABSTRACTS — animações
+   16. COMPONENTS — cabeçalho de página interna
+   Usado no topo de trabalhos.html, alule.html e aluleu.html. Cada página
+   define --page-accent / --page-accent-rgb no <body> (veja bloco 19) para
+   colorir o traço e o eyebrow sem duplicar CSS.
+   ------------------------------------------------------------------------- */
+.page-header {
+  position: relative;
+  padding: var(--space-9) 0 var(--space-7);
+  text-align: center;
+  overflow: hidden;
+}
+
+.page-header::before {
+  content: "";
+  position: absolute;
+  z-index: var(--z-background);
+  top: -60px;
+  left: 50%;
+  width: 360px;
+  height: 220px;
+  background-color: rgba(var(--page-accent-rgb, var(--color-green-rgb)), 0.16);
+  border-radius: 0 0 50% 50% / 0 0 100% 100%;
+  transform: translateX(-50%);
+}
+
+.page-header__inner {
+  position: relative;
+  z-index: var(--z-content);
+  max-width: 680px;
+  margin-inline: auto;
+}
+
+.page-header .eyebrow__dot {
+  background-color: var(--page-accent, var(--color-green));
+}
+
+.page-header__title {
+  margin-top: var(--space-3);
+  margin-bottom: var(--space-4);
+}
+
+.page-header__text {
+  font-size: var(--font-lg);
+  line-height: 1.8;
+}
+
+/* -------------------------------------------------------------------------
+   17. COMPONENTS — galeria de fotos
+   Usada no banco de fotos (Meus Trabalhos) e nas páginas dos personagens.
+   js/galeria.js lê um array de { src, alt } de cada arquivo js/data-*.js e
+   gera um .gallery__item para cada foto — para adicionar/trocar fotos,
+   edite só o array, nunca este CSS nem o HTML.
+   ------------------------------------------------------------------------- */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-5);
+}
+
+.gallery__item {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(155deg, rgba(var(--page-accent-rgb, var(--color-green-rgb)), 0.25), rgba(var(--color-yellow-rgb), 0.22));
+  box-shadow: var(--shadow-sm);
+  transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.gallery__item:hover {
+  transform: translateY(-5px) rotate(-0.6deg);
+  box-shadow: var(--shadow-md);
+}
+
+.gallery__item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery__item .hero__photo-fallback svg {
+  width: 26%;
+  height: 26%;
+}
+
+.gallery__caption {
+  position: absolute;
+  inset: auto 0 0 0;
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(to top, rgba(var(--color-text-rgb), 0.75), transparent);
+  color: var(--color-white);
+  font-size: var(--font-xs);
+  font-weight: var(--fw-semibold);
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.gallery__item:hover .gallery__caption,
+.gallery__item:focus-within .gallery__caption {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.gallery__empty {
+  grid-column: 1 / -1;
+  padding: var(--space-8);
+  text-align: center;
+  border: 1.5px dashed var(--color-border);
+  border-radius: var(--radius-lg);
+  color: var(--color-text-light);
+}
+
+/* -------------------------------------------------------------------------
+   18. COMPONENTS — biografia do personagem
+   Bloco de texto curto (editado à mão por Augusto) acima da galeria nas
+   páginas alule.html / aluleu.html.
+   ------------------------------------------------------------------------- */
+.character-bio {
+  max-width: 720px;
+  margin: 0 auto var(--space-9);
+  text-align: center;
+}
+
+.character-bio__badge {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-bottom: var(--space-5);
+  padding: var(--space-2) var(--space-4);
+  border-radius: var(--radius-pill);
+  background-color: rgba(var(--page-accent-rgb, var(--color-green-rgb)), 0.14);
+  color: var(--page-accent, var(--color-green));
+  font-family: var(--font-display);
+  font-weight: var(--fw-semibold);
+  font-size: var(--font-sm);
+}
+
+.character-bio__text {
+  font-size: var(--font-lg);
+  line-height: 1.85;
+}
+
+.character-bio__text + .character-bio__text {
+  margin-top: var(--space-4);
+}
+
+/* -------------------------------------------------------------------------
+   19. PAGES — páginas internas (trabalhos / personagens)
+   Cada página define a cor de destaque no próprio <body>, ex.:
+   <body class="inner-page" style="--page-accent: var(--color-blue); --page-accent-rgb: var(--color-blue-rgb);">
+   ------------------------------------------------------------------------- */
+.inner-page [id] {
+  scroll-margin-top: 90px;
+}
+
+/* -------------------------------------------------------------------------
+   20. ABSTRACTS — animações
    ------------------------------------------------------------------------- */
 @keyframes float {
   0%,

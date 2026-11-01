@@ -47,30 +47,44 @@
     });
   }
 
-  /* Destaque do link ativo no menu, de acordo com a seção visível */
+  /* Destaque do link ativo no menu.
+     Na home (anchors #sobre, #livros...) segue a seção visível na tela.
+     Nas páginas internas (trabalhos.html, alule.html...) marca o link cujo
+     href bate com o arquivo atual — então basta o nome do arquivo ser igual
+     ao href do menu, não precisa mexer em JS para isso funcionar. */
   const navLinks = Array.from(document.querySelectorAll(".nav__link"));
-  const sections = navLinks
-    .map((link) => {
-      const id = link.getAttribute("href");
-      return id && id.startsWith("#") ? document.querySelector(id) : null;
-    })
-    .filter(Boolean);
+  const isHome = document.body.classList.contains("home");
 
-  if (sections.length && "IntersectionObserver" in window) {
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          const id = `#${entry.target.id}`;
-          navLinks.forEach((link) => {
-            link.classList.toggle("is-active", link.getAttribute("href") === id);
+  if (isHome) {
+    const sections = navLinks
+      .map((link) => {
+        const id = link.getAttribute("href");
+        return id && id.startsWith("#") ? document.querySelector(id) : null;
+      })
+      .filter(Boolean);
+
+    if (sections.length && "IntersectionObserver" in window) {
+      const sectionObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (!entry.isIntersecting) return;
+            const id = `#${entry.target.id}`;
+            navLinks.forEach((link) => {
+              link.classList.toggle("is-active", link.getAttribute("href") === id);
+            });
           });
-        });
-      },
-      { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
-    );
+        },
+        { rootMargin: "-45% 0px -50% 0px", threshold: 0 }
+      );
 
-    sections.forEach((section) => sectionObserver.observe(section));
+      sections.forEach((section) => sectionObserver.observe(section));
+    }
+  } else {
+    const currentPage = window.location.pathname.split("/").pop() || "index.html";
+    navLinks.forEach((link) => {
+      const href = link.getAttribute("href") || "";
+      link.classList.toggle("is-active", href === currentPage);
+    });
   }
 
   /* Revelar elementos suavemente ao entrar na tela */

@@ -1,0 +1,6 @@
+Coloque aqui as capas dos livros, com estes nomes (usados em index.html):
+
+- livro-1.jpg  (Menina Bonita do Laço de Fita)
+- livro-2.jpg  (A Casa da Mosca Fosca)
+
+O terceiro livro ("Em breve") não precisa de capa.

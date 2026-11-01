@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aluleu — Mundo da Isa Criativa</title>
+  <meta name="description" content="Conheça o Aluleu, um dos personagens do mundo da Isa Criativa." />
+
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E🌻%3C/text%3E%3C/svg%3E" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body class="inner-page" style="--page-accent: var(--color-blue); --page-accent-rgb: var(--color-blue-rgb);">
+  <a class="skip-link" href="#main">Pular para o conteúdo</a>
+
+  <!-- ===================== HEADER ===================== -->
+  <header class="header" id="header">
+    <div class="container header__inner">
+      <a href="index.html#home" class="header__logo">
+        <span class="header__logo-mark">🌻</span>
+        Tia [Nome]
+      </a>
+
+      <nav class="nav" id="nav">
+        <ul class="nav__list">
+          <li><a href="index.html#sobre" class="nav__link">Sobre</a></li>
+          <li><a href="index.html#livros" class="nav__link">Livros</a></li>
+          <li><a href="index.html#musica" class="nav__link">Música</a></li>
+          <li><a href="index.html#trajetoria" class="nav__link">Trajetória</a></li>
+          <li class="nav__item--has-children">
+            <a href="alule.html" class="nav__link">Mundo da Isa Criativa</a>
+            <ul class="nav__submenu">
+              <li><a href="alule.html" class="nav__link">Alule</a></li>
+              <li><a href="aluleu.html" class="nav__link">Aluleu</a></li>
+            </ul>
+          </li>
+          <li><a href="trabalhos.html" class="nav__link">Meus Trabalhos</a></li>
+          <li><a href="index.html#contato" class="nav__link">Contato</a></li>
+          <li><a href="index.html#contato" class="btn btn--primary btn--sm nav__cta-mobile">Vamos conversar</a></li>
+        </ul>
+      </nav>
+
+      <a href="index.html#contato" class="btn btn--primary btn--sm header__cta">Vamos conversar</a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Abrir menu" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ===================== CABEÇALHO DA PÁGINA ===================== -->
+    <section class="page-header">
+      <div class="container page-header__inner">
+        <span class="eyebrow"><span class="eyebrow__dot"></span> Mundo da Isa Criativa</span>
+        <h1 class="page-header__title">Aluleu</h1>
+      </div>
+    </section>
+
+    <!-- ===================== TEXTO DE APRESENTAÇÃO ===================== -->
+    <section class="section" style="padding-top: 0;">
+      <div class="container section__container">
+        <!--
+          ===================== EDITE SÓ AQUI =====================
+          Troque o texto dentro do(s) <p> abaixo pela apresentação real
+          do Aluleu. Pode usar mais de um parágrafo (copie a linha
+          <p class="character-bio__text">...</p> quantas vezes precisar).
+          ============================================================
+        -->
+        <div class="character-bio">
+          <span class="character-bio__badge">Quem é o Aluleu?</span>
+          <p class="character-bio__text">
+            [Escreva aqui uma pequena apresentação do Aluleu: o que ele é, de onde vem e o
+            que ele representa no mundo da Isa Criativa.]
+          </p>
+        </div>
+
+        <!--
+          A galeria abaixo é montada automaticamente por js/galeria.js, a
+          partir da lista em js/data-aluleu.js. Para adicionar/trocar
+          fotos, edite SÓ o js/data-aluleu.js — não precisa mexer neste HTML.
+        -->
+        <div class="gallery" id="gallery" data-fonte="DADOS_ALULEU"></div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="container footer__grid">
+      <div class="footer__brand">
+        <h2>Tia [Nome]</h2>
+        <p>
+          Professora de Educação Infantil, apaixonada por primeiras descobertas, livros e
+          canções. Um cantinho para famílias conhecerem um pouco mais do meu trabalho.
+        </p>
+        <div class="footer__socials">
+          <a href="https://instagram.com/" target="_blank" rel="noopener" class="footer__social" aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+              <circle cx="12" cy="12" r="4"></circle>
+              <circle cx="17.2" cy="6.8" r="1"></circle>
+            </svg>
+          </a>
+          <a href="mailto:contato@exemplo.com" class="footer__social" aria-label="E-mail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="14" rx="2"></rect>
+              <path d="m3 7 9 6 9-6"></path>
+            </svg>
+          </a>
+          <a href="https://wa.me/5511999999999" target="_blank" rel="noopener" class="footer__social" aria-label="WhatsApp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 11.5a8.4 8.4 0 0 1-8.9 8.4 8.5 8.5 0 0 1-4-1L3 20l1.1-5a8.3 8.3 0 0 1-1.1-4.2A8.4 8.4 0 0 1 12.4 3 8.4 8.4 0 0 1 21 11.5Z"></path>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer__column">
+        <h3>Navegação</h3>
+        <ul>
+          <li><a href="index.html#sobre">Sobre</a></li>
+          <li><a href="index.html#livros">Livros</a></li>
+          <li><a href="index.html#musica">Música</a></li>
+          <li><a href="index.html#trajetoria">Trajetória</a></li>
+          <li><a href="trabalhos.html">Meus Trabalhos</a></li>
+          <li><a href="alule.html">Alule</a></li>
+          <li><a href="aluleu.html">Aluleu</a></li>
+          <li><a href="index.html#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer__column">
+        <h3>Contato</h3>
+        <ul>
+          <li><a href="mailto:contato@exemplo.com">contato@exemplo.com</a></li>
+          <li><a href="https://wa.me/5511999999999" target="_blank" rel="noopener">(11) 99999-9999</a></li>
+          <li><a href="https://instagram.com/" target="_blank" rel="noopener">@tia.nome</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="container footer__bottom">
+      <p>&copy; <span id="year"></span> Tia [Nome]. Feito com carinho.</p>
+      <!-- <p class="footer__credit">Site desenvolvido por Augusto</p> -->
+    </div>
+  </footer>
+
+  <script src="js/data-aluleu.js" defer></script>
+  <script src="js/galeria.js" defer></script>
+  <script src="js/main.js" defer></script>
+</body>
+</html>

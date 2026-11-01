@@ -1,0 +1,18 @@
+Coloque aqui os trechos de MP3 das 8 músicas (uns 15 segundos cada), com
+estes nomes (os mesmos que já estão em js/data-musica.js):
+
+- 01-cabeca-ombro-joelho-pe.mp3
+- 02-ciranda-cirandinha.mp3
+- 03-a-barata-diz-que-tem.mp3
+- 04-titulo-da-musica.mp3
+- 05-titulo-da-musica.mp3
+- 06-titulo-da-musica.mp3
+- 07-titulo-da-musica.mp3
+- 08-titulo-da-musica.mp3
+
+Dica: para cortar um trecho de uns 15s de um MP3 maior, dá pra usar um
+site gratuito como https://mp3cut.net (sem precisar instalar nada) ou
+qualquer editor de áudio do celular.
+
+Se quiser usar nomes de arquivo diferentes, é só trocar o campo "arquivo"
+de cada música em js/data-musica.js (fica na pasta js/, na raiz do site).

@@ -1,0 +1,14 @@
+Coloque aqui as fotos do banco de fotos "Meus Trabalhos". Os nomes já
+usados em js/data-trabalhos.js são:
+
+- trabalho-01.jpg
+- trabalho-02.jpg
+- trabalho-03.jpg
+- trabalho-04.jpg
+- trabalho-05.jpg
+- trabalho-06.jpg
+
+Pode ter mais do que 6 fotos — é só copiar um bloco inteiro dentro de
+js/data-trabalhos.js e trocar o nome do arquivo e a legenda. Enquanto
+não houver foto com aquele nome, o site mostra um ícone no lugar (não
+fica com "imagem quebrada").

@@ -1,0 +1,6 @@
+Coloque aqui as fotos da galeria do Alule. Os nomes já usados em
+js/data-alule.js são:
+
+- alule-01.jpg até alule-06.jpg
+
+Para trocar quantidade ou nomes, edite js/data-alule.js.

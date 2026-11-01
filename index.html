@@ -31,6 +31,14 @@
           <li><a href="#livros" class="nav__link">Livros</a></li>
           <li><a href="#musica" class="nav__link">Música</a></li>
           <li><a href="#trajetoria" class="nav__link">Trajetória</a></li>
+          <li class="nav__item--has-children">
+            <a href="alule.html" class="nav__link">Mundo da Isa Criativa</a>
+            <ul class="nav__submenu">
+              <li><a href="alule.html" class="nav__link">Alule</a></li>
+              <li><a href="aluleu.html" class="nav__link">Aluleu</a></li>
+            </ul>
+          </li>
+          <li><a href="trabalhos.html" class="nav__link">Meus Trabalhos</a></li>
           <li><a href="#contato" class="nav__link">Contato</a></li>
           <li><a href="#contato" class="btn btn--primary btn--sm nav__cta-mobile">Vamos conversar</a></li>
         </ul>
@@ -181,14 +189,31 @@
           </p>
         </div>
 
+        <!--
+          ===================== COMO EDITAR OS LIVROS =====================
+          Livro 1 e Livro 2 (reais): troque o src da imagem, o título, a
+          autora, a sinopse e o href do botão "Comprar" pelo link de venda
+          real (loja própria, Amazon, etc.). Coloque a capa em
+          assets/img/livros/.
+          Livro 3 ("em breve"): não precisa de capa nem de botão — só o
+          título e uma frase curta contando que está a caminho.
+          ====================================================================
+        -->
         <div class="books__grid">
           <div class="books__item reveal">
             <article class="book-card">
               <div class="book-card__cover book-card__cover--pink">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 5c-2-1.6-5-2-8-1v14c3-1 6-.6 8 1 2-1.6 5-2 8-1V4c-3-1-6-.6-8 1Z"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
+                <img
+                  src="assets/img/livros/livro-1.jpg"
+                  alt="Capa do livro Menina Bonita do Laço de Fita"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                />
+                <span style="display:none; align-items:center; justify-content:center; width:100%; height:100%;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5c-2-1.6-5-2-8-1v14c3-1 6-.6 8 1 2-1.6 5-2 8-1V4c-3-1-6-.6-8 1Z"></path>
+                    <path d="M12 5v14"></path>
+                  </svg>
+                </span>
               </div>
               <h3 class="book-card__title">Menina Bonita do Laço de Fita</h3>
               <span class="book-card__author">Ana Maria Machado</span>
@@ -196,16 +221,31 @@
                 Uma história sobre autoestima e diversidade que sempre rende boas conversas
                 sobre o que nos torna especiais.
               </p>
+              <a href="#" target="_blank" rel="noopener" class="book-card__buy">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="19" cy="21" r="1"></circle>
+                  <path d="M2 3h2l2.6 13.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"></path>
+                </svg>
+                Comprar o livro
+              </a>
             </article>
           </div>
 
           <div class="books__item reveal">
             <article class="book-card">
-              <div class="book-card__cover book-card__cover--blue">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 5c-2-1.6-5-2-8-1v14c3-1 6-.6 8 1 2-1.6 5-2 8-1V4c-3-1-6-.6-8 1Z"></path>
-                  <path d="M12 5v14"></path>
-                </svg>
+              <div class="book-card__cover book-card__cover--red">
+                <img
+                  src="assets/img/livros/livro-2.jpg"
+                  alt="Capa do livro A Casa da Mosca Fosca"
+                  onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+                />
+                <span style="display:none; align-items:center; justify-content:center; width:100%; height:100%;">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M12 5c-2-1.6-5-2-8-1v14c3-1 6-.6 8 1 2-1.6 5-2 8-1V4c-3-1-6-.6-8 1Z"></path>
+                    <path d="M12 5v14"></path>
+                  </svg>
+                </span>
               </div>
               <h3 class="book-card__title">A Casa da Mosca Fosca</h3>
               <span class="book-card__author">Eva Furnari</span>
@@ -213,22 +253,30 @@
                 Uma história cumulativa e rimada, ótima para trabalhar memória, sequência e
                 consciência fonológica brincando.
               </p>
+              <a href="#" target="_blank" rel="noopener" class="book-card__buy">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="9" cy="21" r="1"></circle>
+                  <circle cx="19" cy="21" r="1"></circle>
+                  <path d="M2 3h2l2.6 13.2a2 2 0 0 0 2 1.6h8.8a2 2 0 0 0 2-1.6L21 7H6"></path>
+                </svg>
+                Comprar o livro
+              </a>
             </article>
           </div>
 
           <div class="books__item reveal">
-            <article class="book-card">
-              <div class="book-card__cover book-card__cover--green">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">
-                  <path d="M12 5c-2-1.6-5-2-8-1v14c3-1 6-.6 8 1 2-1.6 5-2 8-1V4c-3-1-6-.6-8 1Z"></path>
-                  <path d="M12 5v14"></path>
+            <article class="book-card book-card--soon">
+              <span class="book-card__soon-badge">
+                <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 6v6l4 2"></path>
                 </svg>
-              </div>
-              <h3 class="book-card__title">Marcelo, Marmelo, Martelo</h3>
-              <span class="book-card__author">Ruth Rocha</span>
+                Em breve
+              </span>
+              <h3 class="book-card__title">Novo livro em andamento</h3>
               <p class="book-card__text">
-                Um passeio pelas palavras e seus sons, que a turma adora repetir em voz alta
-                até decorar de tanto rir.
+                Mais uma história está sendo escrita com muito carinho — assim que estiver
+                pronta, aparece aqui com capa, sinopse e link de compra.
               </p>
             </article>
           </div>
@@ -241,7 +289,7 @@
       <div class="container section__container">
         <div class="music-section__grid">
           <div class="music-section__visual reveal">
-            <div class="music-section__disc" aria-hidden="true"></div>
+            <div class="music-section__disc" id="disc" aria-hidden="true"></div>
           </div>
 
           <div class="music-section__content reveal">
@@ -249,42 +297,18 @@
             <h2 class="section__title">Toda aula começa (e termina) com uma canção</h2>
             <p class="music-section__text">
               A música é presente em toda a rotina: nas boas-vindas, nas transições entre
-              atividades e na hora de guardar os brinquedos. Ela ajuda a turma a memorizar
-              rotinas, ampliar o vocabulário e trabalhar coordenação motora — tudo isso
-              cantando e dançando.
+              atividades e na hora de guardar os brinquedos. Clique numa faixa para ouvir um
+              trechinho — o disco gira enquanto ela toca.
             </p>
 
+            <!--
+              A lista de faixas abaixo é montada sozinha pelo js/musica-player.js,
+              a partir de js/data-musica.js. Para trocar as 8 músicas (título e
+              arquivo mp3), edite SÓ o js/data-musica.js — não mexa aqui.
+            -->
             <div class="music-section__player">
-              <div class="player">
+              <div class="player" id="player">
                 <span class="player__label">Repertório da turminha</span>
-
-                <div class="player__track">
-                  <span class="player__icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
-                  </span>
-                  <span>
-                    <span class="player__name" style="display:block;">Cabeça, Ombro, Joelho e Pé</span>
-                    <span class="player__meta">cantiga de roda</span>
-                  </span>
-                </div>
-                <div class="player__track">
-                  <span class="player__icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
-                  </span>
-                  <span>
-                    <span class="player__name" style="display:block;">Ciranda Cirandinha</span>
-                    <span class="player__meta">cantiga de roda</span>
-                  </span>
-                </div>
-                <div class="player__track">
-                  <span class="player__icon">
-                    <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"></path></svg>
-                  </span>
-                  <span>
-                    <span class="player__name" style="display:block;">A Barata diz que tem</span>
-                    <span class="player__meta">cantiga de roda</span>
-                  </span>
-                </div>
               </div>
             </div>
 
@@ -449,6 +473,9 @@
           <li><a href="#livros">Livros</a></li>
           <li><a href="#musica">Música</a></li>
           <li><a href="#trajetoria">Trajetória</a></li>
+          <li><a href="trabalhos.html">Meus Trabalhos</a></li>
+          <li><a href="alule.html">Alule</a></li>
+          <li><a href="aluleu.html">Aluleu</a></li>
           <li><a href="#contato">Contato</a></li>
         </ul>
       </div>
@@ -470,6 +497,8 @@
     </div>
   </footer>
 
+  <script src="js/data-musica.js" defer></script>
+  <script src="js/musica-player.js" defer></script>
   <script src="js/main.js" defer></script>
 </body>
 </html>

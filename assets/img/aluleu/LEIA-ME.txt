@@ -1,0 +1,6 @@
+Coloque aqui as fotos da galeria do Aluleu. Os nomes já usados em
+js/data-aluleu.js são:
+
+- aluleu-01.jpg até aluleu-06.jpg
+
+Para trocar quantidade ou nomes, edite js/data-aluleu.js.
