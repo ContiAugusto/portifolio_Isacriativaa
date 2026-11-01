@@ -35,4 +35,5 @@ window.DADOS_ALULEU = [
     alt: "Personagem Aluleu",
     legenda: "",
   },
+  
 ];

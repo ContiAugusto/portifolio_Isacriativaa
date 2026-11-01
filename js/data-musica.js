@@ -19,9 +19,9 @@
    ========================================================================= */
 window.DADOS_MUSICA = [
   {
-    titulo: "Cabeça, Ombro, Joelho e Pé",
+    titulo: "Quem é legal - Versão Dona Aranha",
     estilo: "cantiga de roda",
-    arquivo: "assets/audio/01-cabeca-ombro-joelho-pe.mp3",
+    arquivo: "assets/audio/quemelegal.mp3",
     cor: "green",
   },
   {

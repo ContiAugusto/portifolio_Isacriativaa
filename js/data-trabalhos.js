@@ -13,9 +13,9 @@
    ========================================================================= */
 window.DADOS_TRABALHOS = [
   {
-    src: "assets/img/trabalhos/trabalho-01.jpg",
-    alt: "Atividade pedagógica feita pela turma",
-    legenda: "Atividade de pintura",
+    src: "assets/img/trabalhos/parque.jpg",
+    alt: "Atividade pedagógica feita no Bosque do povo",
+    legenda: "Festa das crianças no Bosque do Povo",
   },
   {
     src: "assets/img/trabalhos/trabalho-02.jpg",

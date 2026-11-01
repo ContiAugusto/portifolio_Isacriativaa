@@ -70,6 +70,14 @@
     faixaAtiva = null;
   }
 
+  // Sincroniza o giro do disco ao estado efetivo do áudio.
+  audio.addEventListener("playing", () => {
+    if (disc) disc.classList.add("is-playing");
+  });
+  audio.addEventListener("pause", () => {
+    if (disc) disc.classList.remove("is-playing");
+  });
+
   function tocarOuPausar(botao, faixa) {
     // clicou na faixa que já está tocando -> pausa
     if (faixaAtiva === botao && !audio.paused) {
@@ -88,7 +96,6 @@
         });
         botao.classList.add("is-active");
         if (disc) {
-          disc.classList.add("is-playing");
           disc.style.setProperty("--track-accent", botao.style.getPropertyValue("--track-accent"));
         }
         faixaAtiva = botao;
