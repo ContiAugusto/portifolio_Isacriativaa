@@ -37,6 +37,7 @@
   --color-purple-rgb: 154, 127, 203;
   --color-red: #e4573f;
   --color-red-rgb: 228, 87, 63;
+  
 
   /* Tipografia */
   --font-display: "Fredoka", ui-rounded, "Segoe UI", sans-serif;
@@ -91,6 +92,48 @@
 
   /* Layout */
   --container-max: 1180px;
+}
+:root {
+  /* Green */
+  --color-green-new: #4c9b6e;
+  --color-green-new-rgb: 76, 155, 110;
+  --gradient-green: linear-gradient(135deg, #4c9b6e, #38ef7d);
+  --gradient-zebra-green: repeating-linear-gradient(135deg, #4c9b6e 0px, #4c9b6e 10px, #ffffff 10px, #ffffff 20px);
+
+  /* Yellow */
+  --color-yellow-new: #f2b33d;
+  --color-yellow-new-rgb: 242, 179, 61;
+  --gradient-yellow: linear-gradient(135deg, #f2b33d, #ffd200);
+
+  /* Pink */
+  --color-pink-new: #ef7c98;
+  --color-pink-new-rgb: 239, 124, 152;
+  --gradient-pink: linear-gradient(135deg, #ef7c98, #ff6a88);
+
+  /* Blue */
+  --color-blue-new: #4695d6;
+  --color-blue-new-rgb: 70, 149, 214;
+  --gradient-blue: linear-gradient(135deg, #4695d6, #6dd5ed);
+
+  /* Purple */
+  --color-purple-new: #9a7fcb;
+  --color-purple-new-rgb: 154, 127, 203;
+  --gradient-purple: linear-gradient(135deg, #9a7fcb, #c084fc);
+
+  /* Red */
+  --color-red-new: #e4573f;
+  --color-red-new-rgb: 228, 87, 63;
+  --gradient-red: linear-gradient(135deg, #e4573f, #ff8066);
+
+  /* Orange - New */
+  --color-orange-new: #f28c38;
+  --color-orange-new-rgb: 242, 140, 56;
+  --gradient-orange: linear-gradient(135deg, #f28c38, #ffc15e);
+
+  /* Cyan - New */
+  --color-cyan-new: #36b9c8;
+  --color-cyan-new-rgb: 54, 185, 200;
+  --gradient-cyan: linear-gradient(135deg, #36b9c8, #75e6da);
 }
 
 /* -------------------------------------------------------------------------
@@ -845,7 +888,8 @@ strong {
     top: calc(100% + var(--space-3));
     left: 50%;
     transform: translate(-50%, 8px);
-    min-width: 160px;
+    min-width: 180px;
+    gap: var(--space-3);
     padding: var(--space-2);
     background-color: var(--color-white);
     border: 1px solid var(--color-border);
@@ -1477,6 +1521,8 @@ strong {
 .music-section__disc.is-playing {
   animation-play-state: running;
   box-shadow: 0 30px 60px rgba(var(--color-text-rgb), 0.3);
+    transform: scale(1.08);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .music-section__disc::before {
