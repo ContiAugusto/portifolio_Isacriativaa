@@ -17,12 +17,14 @@
   if (!player || !faixas.length) return;
 
   const CORES = {
-    green: ["--color-green", "--color-green-rgb"],
-    yellow: ["--color-yellow", "--color-yellow-rgb"],
-    pink: ["--color-pink", "--color-pink-rgb"],
-    blue: ["--color-blue", "--color-blue-rgb"],
-    purple: ["--color-purple", "--color-purple-rgb"],
-    red: ["--color-red", "--color-red-rgb"],
+    green: ["--color-green-new", "--color-green-new-rgb", "--gradient-green",],
+    yellow: ["--color-yellow-new", "--color-yellow-new-rgb", "--gradient-yellow"],
+    pink: ["--color-pink-new", "--color-pink-new-rgb", "--gradient-pink"],
+    blue: ["--color-blue-new", "--color-blue-new-rgb", "--gradient-blue"],
+    purple: ["--color-purple-new", "--color-purple-new-rgb", "--gradient-purple"],
+    red: ["--color-red-new", "--color-red-new-rgb", "--gradient-red"],
+    orange: ["--color-orange-new", "--color-orange-new-rgb", "--gradient-orange"],
+    cyan: ["--color-cyan-new", "--color-cyan-new-rgb", "--gradient-cyan"],
   };
 
   const audio = new Audio();
