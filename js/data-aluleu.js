@@ -6,33 +6,53 @@
    ========================================================================= */
 window.DADOS_ALULEU = [
   {
-    src: "assets/img/aluleu/aluleu-01.jpg",
+    src: "assets/img/aluleu/aluleu.jpeg",
     alt: "Personagem Aluleu",
     legenda: "",
   },
   {
-    src: "assets/img/aluleu/aluleu-02.jpg",
+    src: "assets/img/aluleu/aluleu2.jpeg",
     alt: "Personagem Aluleu",
     legenda: "",
   },
   {
-    src: "assets/img/aluleu/aluleu-03.jpg",
+    src: "assets/img/aluleu/aluleu3.jpeg",
     alt: "Personagem Aluleu",
     legenda: "",
   },
   {
-    src: "assets/img/aluleu/aluleu-04.jpg",
+    src: "assets/img/aluleu/aluleu4.jpeg",
     alt: "Personagem Aluleu",
     legenda: "",
   },
   {
-    src: "assets/img/aluleu/aluleu-05.jpg",
+    src: "assets/img/aluleu/aluleu5.jpeg",
     alt: "Personagem Aluleu",
     legenda: "",
   },
   {
-    src: "assets/img/aluleu/aluleu-06.jpg",
-    alt: "Personagem Aluleu",
+    src: "assets/img/aluleu/ambos.jpeg",
+    alt: "aluleu e alule",
+    legenda: "",
+  },
+   {
+    src: "assets/img/aluleu/ambos1.jpeg",
+    alt: "aluleu e alule",
+    legenda: "",
+  },
+   {
+    src: "assets/img/aluleu/ambos2.jpeg",
+    alt: "aluleu e alule",
+    legenda: "",
+  },
+   {
+    src: "assets/img/aluleu/ambos3.jpeg",
+    alt: "aluleu e alule",
+    legenda: "",
+  },
+   {
+    src: "assets/img/aluleu/ambos.jpeg",
+    alt: "aluleu e alule",
     legenda: "",
   },
   

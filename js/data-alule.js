@@ -6,33 +6,43 @@
    ========================================================================= */
 window.DADOS_ALULE = [
   {
-    src: "assets/img/alule/alule-01.jpg",
+    src: "assets/img/alule/alule1.jpeg",
     alt: "Personagem Alule",
     legenda: "",
   },
   {
-    src: "assets/img/alule/alule-02.jpg",
+    src: "assets/img/alule/alule2.jpeg",
     alt: "Personagem Alule",
     legenda: "",
   },
   {
-    src: "assets/img/alule/alule-03.jpg",
+    src: "assets/img/alule/alule3.jpeg",
     alt: "Personagem Alule",
     legenda: "",
   },
   {
-    src: "assets/img/alule/alule-04.jpg",
-    alt: "Personagem Alule",
+    src: "assets/img/alule/ambos.jpeg",
+    alt: "alule e aluleu",
     legenda: "",
   },
   {
-    src: "assets/img/alule/alule-05.jpg",
-    alt: "Personagem Alule",
+    src: "assets/img/alule/ambos1.jpeg",
+    alt: "alule e aluleu",
     legenda: "",
   },
   {
-    src: "assets/img/alule/alule-06.jpg",
-    alt: "Personagem Alule",
+    src: "assets/img/alule/ambos2.jpeg",
+    alt: "alule e aluleu",
+    legenda: "",
+  },
+  {
+    src: "assets/img/alule/ambos3.jpeg",
+    alt: "alule e aluleu",
+    legenda: "",
+  },
+    {
+    src: "assets/img/alule/ambos4.jpeg",
+    alt: "alule e aluleu",
     legenda: "",
   },
 ];
