@@ -55,7 +55,7 @@ window.DADOS_MUSICA = [
     cor: "red",
   },
   {
-    titulo: "comida brasileira - Isacriativa",
+    titulo: "Comida brasileira - Isacriativa",
     estilo: "cantiga de roda",
     arquivo: "assets/audio/Comida brasileira-isaversion.mp3",
     cor: "green",
@@ -73,7 +73,7 @@ window.DADOS_MUSICA = [
     cor: "orange",
   },
    {
-    titulo: "monstro das cores - Isacriativa",
+    titulo: "Monstro das cores - Isacriativa",
     estilo: "cantiga de roda",
     arquivo: "assets/audio/puxa vida.mp3",
     cor: "cyan",
