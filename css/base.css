@@ -66,11 +66,34 @@ ul { margin: 0; padding: 0; list-style: none; }
 .skip-link:focus { transform: translateY(0); }
 :focus-visible { outline: 3px solid var(--color-yellow); outline-offset: 4px; }
 
-.reveal { opacity: 0; transform: translateY(24px); transition: opacity .75s var(--ease), transform .75s var(--ease); }
-.reveal.is-visible { opacity: 1; transform: none; }
+/* 03. Movimentos de entrada controlados pela rolagem */
+.reveal {
+  --reveal-x: 0px;
+  --reveal-y: 30px;
+  --reveal-scale: .985;
+  --reveal-delay: 0ms;
+  opacity: 0;
+  filter: blur(5px);
+  transform: translate3d(var(--reveal-x), var(--reveal-y), 0) scale(var(--reveal-scale));
+  transition:
+    opacity .78s var(--ease) var(--reveal-delay),
+    filter .78s var(--ease) var(--reveal-delay),
+    transform .9s var(--ease) var(--reveal-delay);
+  will-change: opacity, filter, transform;
+}
+.reveal--left { --reveal-x: -52px; --reveal-y: 0px; }
+.reveal--right { --reveal-x: 52px; --reveal-y: 0px; }
+.reveal--zoom { --reveal-y: 18px; --reveal-scale: .92; }
+.reveal--pop { --reveal-y: 16px; --reveal-scale: .86; }
+.reveal.is-visible {
+  opacity: 1;
+  filter: none;
+  transform: translate3d(0, 0, 0) scale(1);
+  will-change: auto;
+}
 
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; animation-iteration-count: 1 !important; transition-duration: .01ms !important; }
-  .reveal { opacity: 1; transform: none; }
+  .reveal { opacity: 1; filter: none; transform: none; }
 }
