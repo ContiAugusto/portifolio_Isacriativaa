@@ -9,12 +9,39 @@
   :root { --header-height: 70px; }
   .section { padding: 82px 0; }
   .nav-toggle { display: block; }
-  .nav { position: fixed; inset: var(--header-height) 0 0; padding: 24px; background: rgba(255,253,250,.98); opacity: 0; pointer-events: none; transform: translateY(-10px); transition: .25s; }
-  .nav.is-open { opacity: 1; pointer-events: auto; transform: none; }
+  /*
+   * O backdrop-filter do header cria um bloco de referência próprio em alguns
+   * navegadores mobile. Por isso o menu usa posição absoluta em relação ao
+   * header, em vez de position: fixed, evitando que ele atravesse a página.
+   */
+  .nav {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - var(--header-height));
+    height: calc(100dvh - var(--header-height));
+    padding: 24px;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    border-top: 1px solid var(--line);
+    background: var(--paper);
+    box-shadow: 0 22px 45px rgba(30, 65, 55, .12);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateY(-10px);
+    transition: opacity .25s ease, transform .25s ease, visibility .25s ease;
+  }
+  .nav.is-open { opacity: 1; visibility: visible; pointer-events: auto; transform: none; }
   .nav__list { display: block; max-width: 520px; margin: 0 auto; }
   .nav__link { padding: 12px 14px; font-size: 1rem; }
   .nav__submenu { position: static; width: auto; padding: 0 0 0 18px; border: 0; box-shadow: none; opacity: 1; pointer-events: auto; transform: none; background: transparent; }
   .nav__cta-mobile { display: inline-flex !important; margin-top: 18px; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(6px) rotate(45deg); }
+  .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+  .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-6px) rotate(-45deg); }
   .hero { min-height: auto; padding-top: 65px; }
   .hero__grid, .about__grid, .music-section__grid, .contact__grid { grid-template-columns: 1fr; }
   .hero__content { max-width: 760px; }
