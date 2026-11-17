@@ -50,10 +50,4 @@ window.DADOS_ALULEU = [
     alt: "aluleu e alule",
     legenda: "",
   },
-   {
-    src: "assets/img/aluleu/ambos.jpeg",
-    alt: "aluleu e alule",
-    legenda: "",
-  },
-  
 ];

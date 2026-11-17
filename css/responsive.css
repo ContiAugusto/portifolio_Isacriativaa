@@ -1,0 +1,61 @@
+/* 15. Responsividade */
+@media (max-width: 1080px) {
+  .header__cta { display: none; }
+  .nav__link { padding-inline: 8px; font-size: .82rem; }
+  .hero__grid, .about__grid, .music-section__grid, .contact__grid { gap: 48px; }
+}
+
+@media (max-width: 900px) {
+  :root { --header-height: 70px; }
+  .section { padding: 82px 0; }
+  .nav-toggle { display: block; }
+  .nav { position: fixed; inset: var(--header-height) 0 0; padding: 24px; background: rgba(255,253,250,.98); opacity: 0; pointer-events: none; transform: translateY(-10px); transition: .25s; }
+  .nav.is-open { opacity: 1; pointer-events: auto; transform: none; }
+  .nav__list { display: block; max-width: 520px; margin: 0 auto; }
+  .nav__link { padding: 12px 14px; font-size: 1rem; }
+  .nav__submenu { position: static; width: auto; padding: 0 0 0 18px; border: 0; box-shadow: none; opacity: 1; pointer-events: auto; transform: none; background: transparent; }
+  .nav__cta-mobile { display: inline-flex !important; margin-top: 18px; }
+  .hero { min-height: auto; padding-top: 65px; }
+  .hero__grid, .about__grid, .music-section__grid, .contact__grid { grid-template-columns: 1fr; }
+  .hero__content { max-width: 760px; }
+  .hero__visual { max-width: 520px; margin: 0 auto; }
+  .about__visual { max-width: 540px; margin: 0 auto; }
+  .books__grid { grid-template-columns: repeat(2,1fr); }
+  .books__item:last-child { grid-column: 1/-1; }
+  .book-card--soon { min-height: 300px; }
+  .music-section__visual { position: relative; top: auto; min-height: 430px; }
+  .vinyl-stage { max-width: 420px; }
+  .contact__visual { max-width: 600px; }
+  .gallery { column-count: 2; }
+  .footer__grid { grid-template-columns: 1.4fr 1fr; }
+  .footer__column:last-child { grid-column: 1/-1; }
+}
+
+@media (max-width: 640px) {
+  .container { width: min(calc(100% - 28px), var(--container)); }
+  .section { padding: 68px 0; }
+  .section__header { margin-bottom: 38px; text-align: left; }
+  .hero { padding: 52px 0 80px; }
+  .hero__title { font-size: clamp(2.5rem, 12.5vw, 3.9rem); }
+  .hero__text br { display: none; }
+  .hero__stats { gap: 20px; }
+  .hero__stat { align-items: flex-start; flex-direction: column; gap: 0; }
+  .hero__badge { right: -4px; bottom: 22px; }
+  .about__highlights, .books__grid { grid-template-columns: 1fr; }
+  .books__item:last-child { grid-column: auto; }
+  .music-section__visual { min-height: 360px; }
+  .vinyl-stage__caption { min-width: 220px; font-size: .76rem; }
+  .player__tracks { grid-template-columns: 1fr; max-height: 390px; }
+  .player__track { border-right: 0; }
+  .timeline::before { left: 8px; }
+  .timeline__item, .timeline__item:nth-child(even) { width: calc(100% - 34px); margin-left: 34px; }
+  .timeline__item:nth-child(odd) .timeline__dot, .timeline__item:nth-child(even) .timeline__dot { left: -34px; right: auto; }
+  .contact__card { padding: 34px 28px; }
+  .page-header { padding: 62px 0 100px; }
+  .character-bio { margin-top: -48px; padding: 28px 22px; }
+  .gallery { column-count: 1; padding-bottom: 70px; }
+  .footer { padding-top: 62px; }
+  .footer__grid { grid-template-columns: 1fr; gap: 36px; }
+  .footer__column:last-child { grid-column: auto; }
+  .footer__bottom { flex-direction: column; }
+}

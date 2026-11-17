@@ -1,0 +1,54 @@
+/* 01. Identidade visual e medidas globais */
+:root {
+  --color-green: #31a56d;
+  --color-green-dark: #18794e;
+  --color-green-rgb: 49, 165, 109;
+  --color-yellow: #f4bd44;
+  --color-yellow-rgb: 244, 189, 68;
+  --color-pink: #e96b95;
+  --color-pink-rgb: 233, 107, 149;
+  --color-blue: #4d9ed8;
+  --color-blue-rgb: 77, 158, 216;
+  --color-purple: #8a6ec7;
+  --color-purple-rgb: 138, 110, 199;
+  --color-red: #e3605a;
+  --color-orange: #ed8b45;
+  --color-cyan: #2eb8b0;
+
+  /* aliases usados pelos dados do player */
+  --color-green-new: var(--color-green);
+  --color-green-new-rgb: var(--color-green-rgb);
+  --color-yellow-new: var(--color-yellow);
+  --color-yellow-new-rgb: var(--color-yellow-rgb);
+  --color-pink-new: var(--color-pink);
+  --color-pink-new-rgb: var(--color-pink-rgb);
+  --color-blue-new: var(--color-blue);
+  --color-blue-new-rgb: var(--color-blue-rgb);
+  --color-purple-new: var(--color-purple);
+  --color-purple-new-rgb: var(--color-purple-rgb);
+  --color-red-new: var(--color-red);
+  --color-red-new-rgb: 227, 96, 90;
+  --color-orange-new: var(--color-orange);
+  --color-orange-new-rgb: 237, 139, 69;
+  --color-cyan-new: var(--color-cyan);
+  --color-cyan-new-rgb: 46, 184, 176;
+
+  --ink: #283d38;
+  --ink-soft: #60726d;
+  --paper: #fffdfa;
+  --paper-warm: #fff8e9;
+  --paper-green: #edf8f2;
+  --white: #fff;
+  --line: rgba(40, 61, 56, 0.12);
+
+  --font-display: "Fredoka", system-ui, sans-serif;
+  --font-body: "Nunito", system-ui, sans-serif;
+  --container: 1180px;
+  --header-height: 78px;
+  --radius-sm: 14px;
+  --radius-md: 24px;
+  --radius-lg: 38px;
+  --shadow-sm: 0 10px 28px rgba(32, 72, 59, 0.09);
+  --shadow-md: 0 24px 70px rgba(32, 72, 59, 0.14);
+  --ease: cubic-bezier(.22, 1, .36, 1);
+}

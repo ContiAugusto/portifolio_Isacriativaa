@@ -94,6 +94,8 @@ window.DADOS_TRABALHOS = [
   },
    {
     src: "assets/img/trabalhos/visitaasilo Projeto crescendo com valores.mp4",
+    tipo: "video",
+    poster: "assets/img/trabalhos/asilo.jpeg",
     alt: "Visita ao asilo Projeto Crescendo com valores",
     legenda: "Visita ao asilo Projeto Crescendo com valores",
   },
@@ -179,11 +181,6 @@ window.DADOS_TRABALHOS = [
   },
    {
     src: "assets/img/trabalhos/APL- Academia popular de letras de scs.jpeg",
-    alt: "APL- Academia popular de letras de scs",
-    legenda: "APL- Academia popular de letras de scs",
-  },
-   {
-    src: "assets/img/trabalhos/1APL- Academia popular de letras de scs.jpeg",
     alt: "APL- Academia popular de letras de scs",
     legenda: "APL- Academia popular de letras de scs",
   },

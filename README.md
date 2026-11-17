@@ -12,11 +12,17 @@ trabalhos.html        → aba "Meus Trabalhos" (banco de fotos da Isabel)
 alule.html             → página do personagem Alule
 aluleu.html            → página do personagem Aluleu
 
-css/style.css          → todo o estilo do site inteiro (cores, tipografia, layout)
+css/style.css          → ponto de entrada dos estilos
+css/tokens.css         → cores, fontes, medidas e sombras
+css/base.css           → reset, tipografia e estrutura global
+css/components.css     → cabeçalho, botões, rodapé e páginas internas
+css/home.css           → seções exclusivas da página inicial e player
+css/gallery.css        → galerias responsivas de imagens e vídeos
+css/responsive.css     → adaptações para tablet e celular
 
 js/main.js              → menu mobile, rolagem suave, animações ao rolar a página
 js/musica-player.js     → liga o player de música ao disco de vinil
-js/galeria.js           → monta as galerias de fotos (trabalhos, Alule, Aluleu)
+js/galeria.js           → monta galerias de fotos e vídeos (trabalhos, Alule, Aluleu)
 
 js/data-musica.js       → as 8 músicas do player (título + arquivo mp3 + cor)
 js/data-trabalhos.js    → as fotos da aba "Meus Trabalhos"
@@ -38,9 +44,9 @@ ajuste, é só mandar o arquivo certo (ou o trecho dele):
 | Quero mudar...                               | Edito só este arquivo          |
 |-----------------------------------------------|---------------------------------|
 | Título ou arquivo de uma música                | `js/data-musica.js`             |
-| Fotos do banco "Meus Trabalhos"                 | `js/data-trabalhos.js`          |
-| Fotos da galeria do Alule                       | `js/data-alule.js`              |
-| Fotos da galeria do Aluleu                      | `js/data-aluleu.js`             |
+| Fotos ou vídeos de "Meus Trabalhos"            | `js/data-trabalhos.js`          |
+| Fotos ou vídeos da galeria do Alule             | `js/data-alule.js`              |
+| Fotos ou vídeos da galeria do Aluleu            | `js/data-aluleu.js`             |
 | Texto de apresentação do Alule                  | `alule.html` (bloco `.character-bio`) |
 | Texto de apresentação do Aluleu                 | `aluleu.html` (bloco `.character-bio`) |
 | Título, sinopse ou link de compra de um livro   | `index.html` (seção `#livros`)  |
@@ -73,14 +79,16 @@ texto (VS Code, por exemplo) e use "localizar e substituir" para trocar:
 Ao clicar numa faixa: ela toca, o ícone vira "pausar" e o disco de vinil gira —
 tudo isso já está pronto, só falta colocar os MP3s.
 
-## Fotos (galerias e livros)
+## Fotos e vídeos (galerias e livros)
 
 1. Coloque os arquivos na pasta indicada (`assets/img/trabalhos/`,
    `assets/img/alule/`, `assets/img/aluleu/` ou `assets/img/livros/`).
 2. Edite o arquivo `js/data-*.js` correspondente (ou, no caso dos livros, o
    `src` da imagem direto em `index.html`) com o nome do arquivo.
-3. Enquanto não houver foto, o site mostra um ícone no lugar — nunca fica com
-   "imagem quebrada".
+3. Para vídeo, use `.mp4`, `.webm`, `.ogg` ou `.mov`; a galeria identifica o
+   formato automaticamente e exibe controles de reprodução.
+4. Opcionalmente, adicione `poster: "caminho/da/capa.jpeg"` no item de vídeo.
+5. As imagens preservam a própria proporção e abrem em um visualizador maior.
 
 ## Como testar localmente
 

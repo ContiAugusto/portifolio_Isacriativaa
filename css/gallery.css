@@ -1,0 +1,24 @@
+/* 14. Galerias de fotos e vídeos
+ * O layout em colunas preserva a proporção original de cada mídia.
+ */
+.gallery-heading { max-width: 720px; margin: 0 auto 38px; text-align: center; }
+.gallery-heading .section__title { margin-bottom: 12px; font-size: clamp(1.8rem, 3.8vw, 2.7rem); }
+.gallery-heading p { color: var(--ink-soft); }
+.gallery { column-count: 3; column-gap: 20px; padding-bottom: 95px; }
+.gallery__item { position: relative; break-inside: avoid; overflow: hidden; margin: 0 0 20px; border: 1px solid var(--line); border-radius: 20px; background: var(--white); box-shadow: var(--shadow-sm); isolation: isolate; }
+.gallery__media-button { display: block; width: 100%; padding: 0; border: 0; background: transparent; cursor: zoom-in; }
+.gallery__item img, .gallery__item video { width: 100%; height: auto; object-fit: contain; background: #eef2ef; }
+.gallery__item video { max-height: 70vh; }
+.gallery__item--video::after { content: "Vídeo"; position: absolute; z-index: 2; top: 12px; right: 12px; padding: 5px 10px; border-radius: 999px; color: var(--white); background: rgba(20,34,30,.78); font-size: .72rem; font-weight: 900; letter-spacing: .06em; text-transform: uppercase; pointer-events: none; }
+.gallery__caption { position: relative; z-index: 2; display: block; margin: 0; padding: 14px 16px 16px; color: var(--ink); background: var(--white); font-size: .86rem; font-weight: 800; line-height: 1.35; }
+.gallery__item:hover { box-shadow: var(--shadow-md); transform: translateY(-3px); transition: .28s var(--ease); }
+.gallery__empty { column-span: all; padding: 45px; border-radius: var(--radius-md); background: var(--paper-green); text-align: center; }
+
+/* Visualizador em tela cheia */
+.media-lightbox { position: fixed; z-index: 500; inset: 0; display: grid; grid-template-rows: auto 1fr auto; padding: 18px; background: rgba(15,28,24,.92); backdrop-filter: blur(10px); opacity: 0; pointer-events: none; transition: opacity .25s; }
+.media-lightbox.is-open { opacity: 1; pointer-events: auto; }
+.media-lightbox__close { justify-self: end; display: grid; width: 46px; height: 46px; place-items: center; border: 1px solid rgba(255,255,255,.25); border-radius: 50%; color: var(--white); background: rgba(255,255,255,.1); font-size: 1.5rem; cursor: pointer; }
+.media-lightbox__content { display: grid; min-height: 0; place-items: center; }
+.media-lightbox__content img, .media-lightbox__content video { max-width: min(1100px, 92vw); max-height: 78vh; border-radius: 16px; object-fit: contain; box-shadow: 0 25px 80px rgba(0,0,0,.42); }
+.media-lightbox__caption { max-width: 760px; margin: 12px auto 0; color: rgba(255,255,255,.84); text-align: center; }
+body.has-lightbox { overflow: hidden; }
